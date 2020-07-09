@@ -1,4 +1,4 @@
-<?php require_once("header.php"); ?>
+<%@include file="header.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -105,4 +105,4 @@
     <!-- end snippets -->
     <hr>
 
-<?php require_once("footer.php"); ?>
+<%@include file="footer.jsp"%>

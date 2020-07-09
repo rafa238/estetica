@@ -1,3 +1,4 @@
+<%@page import="modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="es-419">
     <head>
@@ -15,15 +16,19 @@
         <link rel="shortcut icon" href="img/favicon.ico" />
 
         <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
-
+        
         <!-- Custom styles for this template -->
         <link href="css/custom-styles.css" rel="stylesheet">
+        <link href="css/form-validation.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
+    <%
+       HttpSession sesion = request.getSession();
+    %>
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -34,17 +39,37 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <a class="nav-link" href="index.jsp">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Servicios</a>
+                        <a class="nav-link" href="portafolio.jsp">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Agendar Cita</a>
+                        <a class="nav-link" href="carrito.jsp">Agendar Cita</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contacto</a>
                     </li>
+                    <%
+                        Usuario u = new Usuario();
+                        u = (Usuario)sesion.getAttribute("usuario");
+                        if( u == null){
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sesion.jsp">Iniciar Sesion</a>
+                    </li>
+                    <%
+                        }else{
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hola <%=u.getNombre()%></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerrar Sesion</a>
+                    </li>
+                    <%
+                        }
+                    %>
                 </ul>
             </div>
         </div>

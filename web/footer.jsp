@@ -2,7 +2,7 @@
     <!-- Footer -->
     <footer class="py-4 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; 2020 | <em><a class="text-white" href="#">Xtreme - NewImage</a></em></p>
+            <p class="m-0 text-center text-white">Copyright &copy; 2020 | <em><a class="text-white" href="#">®Xtreme - NewImage</a></em></p>
         </div>
     </footer>
     

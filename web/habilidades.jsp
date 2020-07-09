@@ -1,4 +1,4 @@
-<?php require_once("header.php"); ?>
+<%@include file="header.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -9,7 +9,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.php">Inicio</a>
+          <a href="index.jsp">Inicio</a>
         </li>
         <li class="breadcrumb-item active">Habilidades</li>
       </ol>
@@ -107,4 +107,4 @@
 
       </div>
 
-<?php require_once("footer.php"); ?>
+<%@include file="footer.jsp"%>
