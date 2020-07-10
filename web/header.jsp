@@ -48,7 +48,7 @@
                         <a class="nav-link" href="carrito.jsp">Agendar Cita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="contacto.jsp">Contacto</a>
                     </li>
                     <%
                         Usuario u = new Usuario();
@@ -62,10 +62,7 @@
                         }else{
                     %>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hola <%=u.getNombre()%></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar Sesion</a>
+                        <a class="nav-link" href="Loggin">Cerrar Sesion</a>
                     </li>
                     <%
                         }

@@ -17,6 +17,31 @@ public class Loggin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession sesion = request.getSession();
+            sesion.removeAttribute("usuario");
+            response.sendRedirect("index.jsp");
+            out.print("<html>");
+            out.print("<script>");
+            out.print("alert(\"Tienes que iniciar sesion primero\");");    
+            out.print("location.href=\"index.jsp\";");
+            out.print("</script>");
+            out.print("</html>");
+        }
+        
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             CConsultas cons = new CConsultas();
             String email = request.getParameter("email");
@@ -28,25 +53,12 @@ public class Loggin extends HttpServlet {
                 sesion.setAttribute("usuario", u);
                 response.sendRedirect("index.jsp");
             }else{
-                response.sendRedirect("sesion.jsp");
-                out.println("<script>");
-                out.println("alert('Problema en el procesado de la query');");
-                out.println("location='sesion.jsp';");
-                out.println("</script>");
+                out.print("<script>");
+                out.print("alert(\"Tienes que iniciar sesion primero\");");    
+                out.print("location.href=\"index.jsp\";");
+                out.print("</script>");
             }
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     @Override

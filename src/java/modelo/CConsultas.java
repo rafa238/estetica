@@ -97,4 +97,24 @@ public class CConsultas {
         }     
         return u;
     }
+    
+    public ArrayList getSucursales(){
+        ArrayList<Sucursal> lista = new ArrayList<>();
+        try {
+            sql = "SELECT * FROM c_sucursales";
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Sucursal suc = new Sucursal();
+                suc.setId(rs.getInt("pk_i_sucursal"));
+                suc.setNombre(rs.getString("d_v_nombre"));
+                suc.setDireccion(rs.getString("d_v_direccion"));
+                lista.add(suc);
+            }
+        } catch (SQLException ex) {
+            System.out.println("---------->SQL_Error " + ex);
+        }     
+        return lista;
+    }
 }

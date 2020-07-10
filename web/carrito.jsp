@@ -1,14 +1,13 @@
     <%@include file="header.jsp"%>
     <%
-    if(sesion.getAttribute("usuario") == null){
+        if(sesion.getAttribute("usuario") == null){
     %>
     <script>
         alert("Tienes que iniciar sesion primero");
-        location.href="index.jsp";
+        location.href="sesion.jsp";
     </script>
     <%
-        
-    }
+        }
     %>
     <%@page import="java.util.ArrayList"%>
     <%@page import="modelo.Servicio"%>

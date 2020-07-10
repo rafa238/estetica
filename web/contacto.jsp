@@ -1,3 +1,6 @@
+<%@page import="modelo.Sucursal"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.CConsultas"%>
 <%@include file="header.jsp"%>
 
     <!-- Page Content -->
@@ -5,48 +8,49 @@
 
       <!-- Page Heading/Breadcrumbs -->
       <br/><br/>
-      <h1 class="mt-4 mb-3">Contactame</h1>
+      <h1 class="mt-4 mb-3">Acercate a una de nuestras sucursales mas cercanas</h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.php">Inicio</a>
+          <a href="index.jsp">Inicio</a>
         </li>
         <li class="breadcrumb-item active">Contacto</li>
       </ol>
 
       <!-- Content Row -->
       <div class="row">
-        <!-- Map Column -->
-        <div class="col-lg-8 mb-4">
-          <!-- Embedded Google Map -->
-          <div id="map-canvas"></div>
-        </div>
-
+         
         <!-- Contact Details Column -->
-        <div class="col-lg-4 mb-4">
-          <h3>Si deseas que trabajemos en algun proyecto juntos. !!!</h3>
+        <%
+            CConsultas cons = new CConsultas();
+            ArrayList<Sucursal> lista = new ArrayList();
+            lista = cons.getSucursales();
+            for(int i=0;i<lista.size();i++){
+        %>
+        <div class="col-lg-6 mb-4">
+          <h3><%=lista.get(i).getNombre()%></h3>
           <p>
             <span class="fa fa-address-card" aria-hidden="true"></span>&nbsp;&nbsp;
-            Av. Poniente 128 Col. Nueva Vallejo, Del. Gustavo A. Madero
+            <%=lista.get(i).getDireccion()%>
           </p>
           <p>
             <span class="fa fa-phone" aria-hidden="true"></span>&nbsp;&nbsp;
             (55)5434-0487
           </p>
           <p>
-            <span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;&nbsp;
-            <a href="mailto:fdxdesarrollos@gmail.com">fdxdesarrollos@gmail.com</a>
-          </p>
-          <p>
             <span class="fa fa-clock-o" aria-hidden="true"></span>&nbsp;&nbsp;
-            Lunes - Viernes: 10:00 AM a 6:00 PM
+            Lunes - Viernes: 9:00 AM a 4:00 PM
           </p>
         </div>
+        <%
+            }
+        %>
       </div>
       <!-- /.row -->
 
       <!-- Contact Form -->
       <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+      
       <div class="row">
         <div class="col-lg-8 mb-4">
           <h3>Contacto</h3>
@@ -90,19 +94,5 @@
       <!-- /.row -->
 
     </div>
-
-    <hr>
-    <!-- snippets Section -->
-    <div class="col-md-12 text-center">
-      <ul class="social-network social-circle">
-          <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-          <li><a href="https://www.facebook.com/frederick.velasco.739" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="https://twitter.com/" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="https://www.google.com.mx/" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="https://www.linkedin.com/pub/federico-juárez/b6/313/833" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-      </ul>
-    </div>
-    <!-- end snippets -->
-    <hr>
 
 <%@include file="footer.jsp"%>
