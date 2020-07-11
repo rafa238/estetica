@@ -3,7 +3,7 @@
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ *//*
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -33,7 +33,7 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+}*/
 
 @media print {
   *,
@@ -5489,6 +5489,8 @@ button.close {
           transform: translateX(0);
 }
 
+/*-----------------Mandaba error-----------*/
+/*
 @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-item-next.carousel-item-left,
   .carousel-item-prev.carousel-item-right {
@@ -5497,18 +5499,33 @@ button.close {
   }
 }
 
-.carousel-item-next,
-.active.carousel-item-right {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-}
-
 @supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .carousel-item-next,
   .active.carousel-item-right {
     -webkit-transform: translate3d(100%, 0, 0);
             transform: translate3d(100%, 0, 0);
   }
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  .carousel-item-prev,
+  .active.carousel-item-left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+}
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+}
+}*/
+
+.carousel-item-next,
+.active.carousel-item-right {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .carousel-item-prev,
@@ -5517,13 +5534,7 @@ button.close {
           transform: translateX(-100%);
 }
 
-@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-  .carousel-item-prev,
-  .active.carousel-item-left {
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
-  }
-}
+
 
 .carousel-control-prev,
 .carousel-control-next {
@@ -6797,14 +6808,7 @@ a.bg-dark:focus, a.bg-dark:hover {
   z-index: 1030;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
-  .sticky-top {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1020;
-  }
-}
+
 
 .sr-only {
   position: absolute;

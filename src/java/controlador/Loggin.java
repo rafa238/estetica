@@ -51,11 +51,18 @@ public class Loggin extends HttpServlet {
                 Usuario u = new Usuario();
                 u = cons.getUsuario(email, password);
                 sesion.setAttribute("usuario", u);
-                response.sendRedirect("index.jsp");
+                if(u.getRol() == 1){
+                    out.print("<script>");
+                    out.print("alert(\"Bienvenido admin \");");    
+                    out.print("location.href=\"index.jsp\";");
+                    out.print("</script>");
+                }else{
+                    response.sendRedirect("index.jsp");
+                }
             }else{
                 out.print("<script>");
-                out.print("alert(\"Tienes que iniciar sesion primero\");");    
-                out.print("location.href=\"index.jsp\";");
+                out.print("alert(\"Correo y/o contraseña invalida\");");    
+                out.print("location.href=\"sesion.jsp\";");
                 out.print("</script>");
             }
         }

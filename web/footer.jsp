@@ -15,28 +15,6 @@
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
     <script type="text/javascript">
-        /*$(document).ready(function() {
-            $('.desaparece').hover(function(){
-                $(this).animate({opacity:0});
-                },function(){
-                $(this).animate({opacity:1});
-            });
-
-            function initMap() {
-                var location = new google.maps.LatLng(19.4887866, -99.1453056,17);
-                var mapCanvas = document.getElementById('map-canvas');
-                var mapOptions = {
-                    center: location,
-                    zoom: 16,
-                    panControl: false,
-                    scrollwheel: false,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                }
-                var map = new google.maps.Map(mapCanvas, mapOptions);
-            }
-            
-            google.maps.event.addDomListener(window, 'load', initMap);
-        });*/
     </script>
     </body>
 </html>

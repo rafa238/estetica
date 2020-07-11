@@ -14,7 +14,7 @@
         <meta name="robots" content="index, follow" >	
         <title>Xtreme - NewImage</title>
         <link rel="shortcut icon" href="img/favicon.ico" />
-
+        <script src="js/validaciones.js" type="text/javascript"></script>
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -56,13 +56,30 @@
                         if( u == null){
                     %>
                     <li class="nav-item">
-                        <a class="nav-link" href="sesion.jsp">Iniciar Sesion</a>
+                        <div class="dropdown">
+                            <a style="border: none" class="nav-link dropdown-toggle" href="#" role="text" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Bienvenido
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="sesion.jsp">Iniciar Sesion</a>
+                              <a class="dropdown-item" href="#">Crear Cuenta</a>
+                            </div>
+                        </div>
                     </li>
                     <%
                         }else{
                     %>
                     <li class="nav-item">
-                        <a class="nav-link" href="Loggin">Cerrar Sesion</a>
+                        <div class="dropdown">
+                            <a style="border: none" class="nav-link dropdown-toggle" href="#" role="text" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Hola <%=u.getNombre()%>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="Loggin">Cerrar Sesion</a>
+                            </div>
+                        </div>
                     </li>
                     <%
                         }
